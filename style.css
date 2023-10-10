@@ -32,9 +32,14 @@ nav{
     justify-content: space-between;
     padding: 1vw 2vw;
     background-color: #fff;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 
 .hero{
+    margin-top: 4vw;
     height: 30vw;
     width: 100vw;
     background-color: cornflowerblue;
