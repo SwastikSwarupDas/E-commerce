@@ -3,17 +3,114 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Montserrat';
+    overflow-x: hidden;
 }
 
-#bulb{
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
-    border: 4px solid #000;    
+/* width */
+::-webkit-scrollbar {
+    width: 0.4vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1vw 2vw;
+    background-color: #fff;
 }
 
-h1{
-    font-size: 70px;
+.hero{
+    height: 30vw;
+    width: 100vw;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: center;
+    background-image: url('HeroImage.avif');
+    background-size: cover;
+    background-position: center 10%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero h1{
+    font-size: 10vw;
+    color: #fff;
+    font-weight: 100;
+    position: absolute;
+    bottom: 0;
+}
+
+nav .logo h1{
+    font-size: 2vw;
+    font-weight: 100;
+}
+
+.links{
+    display: flex;
+    gap: 2vw;
+}
+
+.links a{
+    color: black;
+    letter-spacing: 0.2vw;
+    text-decoration: none;
+}
+
+
+.menProductDisplay, .womenProductDisplay{
+    display:flex;
+    flex-direction: row-reverse;
+    margin-bottom: 4vw;
+}
+
+.products{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.catLabel{
+    font-size: 1.2vw;
+    margin: 2vw 0vw 1vw 3vw;
     font-weight: 800;
+
+}
+
+.products img{
+    width: 20vw;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('HeroImage.avif');
+    background-size: cover;
+    background-position: center 90%;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 3vw;
+    color: #fff;
+    backdrop-filter: blur(5px);
+}
+
+.right{
+    display: flex;
+    gap: 3vw;
 }
 
