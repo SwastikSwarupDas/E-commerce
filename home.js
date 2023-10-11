@@ -5,7 +5,7 @@ var womenProductDisplay = document.querySelector(".womenProductDisplay");
 async function loadMensClothes(){
     let raw = await fetch('https://fakestoreapi.com/products/category/men\'s clothing');
     let product = await raw.json();
-    console.log(product);
+    // console.log(product);
 
     product.forEach((element) => {
 
@@ -50,7 +50,7 @@ async function loadMensClothes(){
         products.appendChild(ProductTextDiv);
 
         products.addEventListener("click", () => {
-            window.location.href = `product.html?id=${product.id}`;
+            window.location.href = `product.html?id=${element.id}`;
         });
 
         productDisplay.appendChild(products);
@@ -61,7 +61,6 @@ async function loadMensClothes(){
 async function loadWomensClothes(){
     let raw = await fetch('https://fakestoreapi.com/products/category/women\'s clothing?limit=4');
     let product = await raw.json();
-    console.log(product);
 
     product.forEach((element) => {
 
@@ -70,12 +69,10 @@ async function loadWomensClothes(){
         let products = document.createElement("div");
         let imageHolder = document.createElement("div");
 
-       
 
         imageHolder.style.display = "flex";
         imageHolder.style.alignItems = "center";
         imageHolder.style.padding = "5vw 10vw";
-        imageHolder.style.height = "20vw";
         imageHolder.style.height = "25vw";
         imageHolder.style.overflowY = "hidden";
 
@@ -109,8 +106,8 @@ async function loadWomensClothes(){
         products.style.margin = "0vw 2vw";
 
         products.addEventListener("click", () => {
-            window.location.href = `product.html?id=${product.id}`;
-          });
+            window.location.href = `product.html?id=${element.id}`;
+        });
 
         womenProductDisplay.appendChild(products);
 

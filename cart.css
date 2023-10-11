@@ -1,0 +1,79 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+    overflow-x: hidden;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.4vw;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-between;
+    padding: 1vw 2vw;
+    background-color: #fff;
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    gap: 3vw;
+    width: 100%;
+}
+
+nav h1{
+    font-size: 7vw;
+    font-weight: 100;
+    color: rgba(0,0,0,0.8);
+}
+
+.pagination{
+    display: flex;
+    gap:3vw;
+    font-size: 0.8vw;
+    font-weight: 100;
+    color: rgba(0,0,0,0.5);
+}
+
+.bagination{
+    margin-top: 15vw;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-image: url('HeroImage.avif');
+    background-size: cover;
+    background-position: center 90%;
+    background-repeat: no-repeat;
+    position: relative; */
+    padding: 3vw;
+    color: #000000;
+    
+}
+
+.right{
+    display: flex;
+    gap: 3vw;
+    color: rgba(100,100,100,0.5);
+}
