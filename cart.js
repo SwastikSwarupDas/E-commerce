@@ -12,7 +12,51 @@ async function loadCart(){
         removeButton.appendChild(removeButtonText);
 
         let buttons = document.createElement("div");
+      
+
+        let addButton = document.createElement("button");
+        let addButtonText = document.createTextNode("add one");
+        addButton.appendChild(addButtonText);
+
+      
+
+        let minusButton = document.createElement("button");
+        let minusButtonText = document.createTextNode("take one out");
+        minusButton.appendChild(minusButtonText);
+
+        buttons.appendChild(addButton);
+        buttons.appendChild(minusButton);
         buttons.appendChild(removeButton);
+
+        buttons.style.display="flex";
+        buttons.style.gap="1.4vw";
+        
+        minusButton.style.width="8vw";
+        minusButton.style.backgroundColor="#fff";
+        minusButton.style.padding="0.5vw 0vw";
+        minusButton.style.border="2px solid rgba(110,120,120,0.5)";
+        minusButton.style.borderRadius="15px";
+        minusButton.style.fontSize="1vw";
+        minusButton.style.color="rgba(100,100,100,0.7)";
+
+        addButton.style.gap="1vw";
+        addButton.style.width="8vw";
+        addButton.style.backgroundColor="#fff";
+        addButton.style.padding="0vw 0vw";
+        addButton.style.border="2px solid rgba(110,120,120,0.5)";
+        addButton.style.borderRadius="15px";
+        addButton.style.fontSize="1vw";
+        addButton.style.color="rgba(100,100,100,0.7)";
+
+        removeButton.style.gap="1vw";
+        removeButton.style.width="8vw";
+        removeButton.style.backgroundColor="#fff";
+        removeButton.style.padding="0vw 0vw";
+        removeButton.style.border="2px solid rgba(110,120,120,0.5)  ";
+        removeButton.style.borderRadius="15px";
+        removeButton.style.fontSize="1vw";
+        removeButton.style.color="rgba(100,100,100,0.7)";
+
 
         let productDiv = document.createElement("div");
         productDiv.classList.add("product-div");
