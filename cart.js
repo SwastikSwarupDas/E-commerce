@@ -8,13 +8,11 @@ async function loadCart(){
         let productData = await raw.json();
 
         let removeButton = document.createElement("button");
-        removeButton.setAttribute("data-product-id", product.id);
+        // removeButton.setAttribute("data-product-id", product.id);
         let removeButtonText = document.createTextNode("remove");
         removeButton.appendChild(removeButtonText);
 
         let buttons = document.createElement("div");
-      
-
         let addButton = document.createElement("button");
         let addButtonText = document.createTextNode("add one");
         addButton.appendChild(addButtonText);
@@ -119,7 +117,7 @@ async function loadCart(){
         addButton.addEventListener("click",function(){
             product.quantity += 1;
             localStorage.setItem("cart", JSON.stringify(cart)); 
-            
+            quantity.innerText=product.quantity+" in bag";
         });
 
         minusButton.addEventListener("click",function(){
@@ -128,7 +126,8 @@ async function loadCart(){
             if (product.quantity === 0) {
                 cart.splice(productIndex, 1);
             }
-            localStorage.setItem("cart", JSON.stringify(cart));  
+            localStorage.setItem("cart", JSON.stringify(cart));
+            quantity.innerText=product.quantity+" in bag";  
         });
         
         removeButton.addEventListener("click",function(){
@@ -137,6 +136,7 @@ async function loadCart(){
                 cart.splice(productIndex, 1);
             }
             localStorage.setItem("cart", JSON.stringify(cart)); 
+            location.reload();
         });
     }
 }
