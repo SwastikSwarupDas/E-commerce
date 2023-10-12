@@ -8,6 +8,7 @@ async function loadCart(){
         let productData = await raw.json();
 
         let removeButton = document.createElement("button");
+        removeButton.setAttribute("data-product-id", product.id);
         let removeButtonText = document.createTextNode("remove");
         removeButton.appendChild(removeButtonText);
 
@@ -18,7 +19,6 @@ async function loadCart(){
         let addButtonText = document.createTextNode("add one");
         addButton.appendChild(addButtonText);
 
-      
 
         let minusButton = document.createElement("button");
         let minusButtonText = document.createTextNode("take one out");
@@ -116,6 +116,31 @@ async function loadCart(){
 
         bagination.appendChild(productDiv);
 
+        addButton.addEventListener("click",function(){
+            product.quantity += 1;
+            localStorage.setItem("cart", JSON.stringify(cart)); 
+            location.reload();
+        });
+
+        minusButton.addEventListener("click",function(){
+            product.quantity -= 1;
+            let productIndex = cart.findIndex(product => product.id == product.id);
+            if (productIndex = 0) {
+                cart.splice(productIndex, 1);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart)); 
+            location.reload();
+        });
+        
+        removeButton.addEventListener("click",function(){
+            let productIndex = cart.findIndex(product => product.id == product.id);
+            if (productIndex > -1) {
+                cart.splice(productIndex, 1);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart)); 
+            location.reload();
+        });
+        
     }
 }
 
