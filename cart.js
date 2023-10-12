@@ -1,5 +1,6 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || "[]";
 let bagination = document.querySelector(".bagination");
+let bill = document.querySelector(".tab");
 
 async function loadCart(){
     for(let i=0; i<cart.length;i++){
@@ -109,15 +110,27 @@ async function loadCart(){
 
         productDiv.style.display="flex";
         productDiv.style.alignItems="center";
+        productDiv.style.gap="10vw";
         productDiv.style.justifyContent="space-evenly";
         productDiv.style.padding="2vw 10vw";
 
         bagination.appendChild(productDiv);
 
+        let billList = document.createElement("div");
+        let billItemName = document.createElement("div");
+        billItemName.appendChild(titleText);
+        let billPrice = document.createTextNode(productData.price*1500 + " x" + product.quantity);
+        
+        billList.appendChild(billPrice);
+
+        bill.appendChild(billItemName);
+        bill.appendChild(billList);
+
         addButton.addEventListener("click",function(){
             product.quantity += 1;
             localStorage.setItem("cart", JSON.stringify(cart)); 
             quantity.innerText=product.quantity+" in bag";
+            billList.innerText=product.price*1500 + " x" + product.quantity;
         });
 
         minusButton.addEventListener("click",function(){
@@ -128,7 +141,9 @@ async function loadCart(){
                 location.reload();
             }
             localStorage.setItem("cart", JSON.stringify(cart));
+            billList.innerText=product.price*1500 + " x" + product.quantity;
             quantity.innerText=product.quantity+" in bag";  
+        
         });
         
         removeButton.addEventListener("click",function(){

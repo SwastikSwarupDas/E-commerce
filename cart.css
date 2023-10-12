@@ -55,8 +55,30 @@ nav h1{
     color: rgba(0,0,0,0.5);
 }
 
+.cartination{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .bagination{
     margin-top: 15vw;
+}
+
+.tabination{
+  margin-top: 15vw;
+  width: 15vw;
+}
+
+.tab{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5vw 1vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.075), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+  letter-spacing: 0.2vw;
+  border-radius: 15px;
+  font-weight: 600;
+  color: rgba(0,0,0,0.5);
 }
 
 footer{
@@ -78,3 +100,7 @@ footer{
     gap: 3vw;
     color: rgba(100,100,100,0.5);
 }
+
+
+
+
