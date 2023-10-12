@@ -1,6 +1,11 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || "[]";
+
 let bagination = document.querySelector(".bagination");
 let bill = document.querySelector(".tab");
+
+let cartination = document.querySelector(".cartination");
+
+let emptyCart = document.querySelector(".emptyCart");
 
 async function loadCart(){
     for(let i=0; i<cart.length;i++){
@@ -124,7 +129,7 @@ async function loadCart(){
         
         billList.appendChild(billPrice);
 
-        billList.style.fontSize="0.7vw";
+        billList.style.fontSize="0.8vw";
         billList.style.color="rgba(0,0,0,0.7)";
         billList.style.display="flex";
         billList.style.flexDirection="column";
@@ -138,6 +143,7 @@ async function loadCart(){
         billItemName.style.fontSize="0.7vw";
         billItemName.style.color="rgba(0,0,0,0.5)";
 
+        totalPriceItem = document.createElement("div");
 
         let billItem = document.createElement("div");
 
@@ -177,4 +183,9 @@ async function loadCart(){
     }
 }
 
-loadCart();
+if (cart.length === 0) {
+    cartination.style.display="none";
+} else {
+    emptyCart.style.display="none";
+    loadCart();
+}

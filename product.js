@@ -74,6 +74,7 @@ async function loadProduct(){
     productDescription.appendChild(bagbutton);
 
     let productQuantity = document.createElement("div");
+    
     let productIndex = cart.findIndex(p=>p.id==productId);
     console.log(productIndex);
     let quantityText = document.createTextNode("");
