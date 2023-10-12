@@ -73,6 +73,7 @@ async function loadCart(){
            
         let productTitle = document.createElement("div");
         let titleText = document.createTextNode(product.title);
+        let billTitleText = document.createTextNode((product.title).toUpperCase());
 
         let price = document.createElement("div");
         let priceText = document.createTextNode("¥ "+productData.price*1500);
@@ -112,25 +113,44 @@ async function loadCart(){
         productDiv.style.alignItems="center";
         productDiv.style.gap="10vw";
         productDiv.style.justifyContent="space-evenly";
-        productDiv.style.padding="2vw 10vw";
+        productDiv.style.padding="2vw 2vw";
 
         bagination.appendChild(productDiv);
 
         let billList = document.createElement("div");
         let billItemName = document.createElement("div");
-        billItemName.appendChild(titleText);
-        let billPrice = document.createTextNode(productData.price*1500 + " x" + product.quantity);
+        billItemName.appendChild(billTitleText);
+        let billPrice = document.createTextNode("¥ " + productData.price*1500 + " x" + product.quantity);
         
         billList.appendChild(billPrice);
 
-        bill.appendChild(billItemName);
-        bill.appendChild(billList);
+        billList.style.fontSize="0.7vw";
+        billList.style.color="rgba(0,0,0,0.7)";
+        billList.style.display="flex";
+        billList.style.flexDirection="column";
+        billList.style.alignItems="end";
+        billList.style.paddingRight="1.1vw";
+
+        billItemName.style.display="flex";
+        billItemName.style.flexDirection="column";
+        billItemName.style.alignItems="start";
+        billItemName.style.width="20vw";
+        billItemName.style.fontSize="0.7vw";
+        billItemName.style.color="rgba(0,0,0,0.5)";
+
+
+        let billItem = document.createElement("div");
+
+        billItem.appendChild(billItemName);
+        billItem.appendChild(billList);
+
+        bill.appendChild(billItem);
 
         addButton.addEventListener("click",function(){
             product.quantity += 1;
             localStorage.setItem("cart", JSON.stringify(cart)); 
             quantity.innerText=product.quantity+" in bag";
-            billList.innerText=product.price*1500 + " x" + product.quantity;
+            billList.innerText="¥ "+product.price*1500 + " x" + product.quantity;
         });
 
         minusButton.addEventListener("click",function(){
@@ -141,7 +161,7 @@ async function loadCart(){
                 location.reload();
             }
             localStorage.setItem("cart", JSON.stringify(cart));
-            billList.innerText=product.price*1500 + " x" + product.quantity;
+            billList.innerText="¥ " +product.price*1500 + " x" + product.quantity;
             quantity.innerText=product.quantity+" in bag";  
         
         });
