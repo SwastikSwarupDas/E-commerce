@@ -42,7 +42,7 @@ nav{
     margin-top: 4vw;
     height: 30vw;
     width: 100vw;
-    background-color: cornflowerblue;
+    background-color: rgb(242, 242, 242);
     display: flex;
     justify-content: center;
     background-image: url('HeroImage.avif');
