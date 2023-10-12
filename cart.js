@@ -125,6 +125,7 @@ async function loadCart(){
             let productIndex = cart.findIndex(p => p.id == product.id);
             if (product.quantity === 0) {
                 cart.splice(productIndex, 1);
+                location.reload();
             }
             localStorage.setItem("cart", JSON.stringify(cart));
             quantity.innerText=product.quantity+" in bag";  
