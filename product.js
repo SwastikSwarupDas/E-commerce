@@ -1,4 +1,5 @@
 var product = document.querySelector(".product");
+let cart = JSON.parse(localStorage.getItem("cart")) || "[]";
 product.style.marginTop = "4vw";
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
@@ -29,8 +30,6 @@ async function loadProduct(){
     bagbutton.style.fontSize="1.2vw";
     bagbutton.style.color="rgba(100,100,100,0.7)"
     bagbutton.appendChild(buttonText);
-    
-    
 
     let category = document.createElement("div");
     let categoryText = document.createTextNode(productData.category);
@@ -74,6 +73,20 @@ async function loadProduct(){
     productDescription.appendChild(price);
     productDescription.appendChild(bagbutton);
 
+    let productQuantity = document.createElement("div");
+    let productIndex = cart.findIndex(p=>p.id==productId);
+    console.log(productIndex);
+    let quantityText = document.createTextNode("");
+    productQuantity.appendChild(quantityText);
+    productDescription.appendChild(productQuantity);
+    productQuantity.style.letterSpacing="0.05vw";
+    productQuantity.style.color="rgba(40,40,40,0.5)";
+
+    if(cart[productIndex]?.quantity){
+        let quantity = (cart[productIndex].quantity);
+        productQuantity.innerText=quantity + " in bag";
+    }
+
     productDescription.style.width = "40vw";
     productDescription.style.display = "flex";
     productDescription.style.flexDirection = "column";
@@ -94,16 +107,16 @@ async function loadProduct(){
     let existingProduct = cart.find(product => product.id === productData.id);
 
     if (existingProduct) {
-       
         existingProduct.quantity += 1;
+        productQuantity.innerText=existingProduct.quantity + " in bag";
     } else {
-       
         productData.quantity = 1;
         cart.push(productData);
+        productQuantity.innerText=productData.quantity + " in bag";
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    
+  
     console.log("Cart updated:", cart);
 
 });

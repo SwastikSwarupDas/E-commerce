@@ -119,17 +119,16 @@ async function loadCart(){
         addButton.addEventListener("click",function(){
             product.quantity += 1;
             localStorage.setItem("cart", JSON.stringify(cart)); 
-            location.reload();
+            
         });
 
         minusButton.addEventListener("click",function(){
             product.quantity -= 1;
-            let productIndex = cart.findIndex(product => product.id == product.id);
-            if (productIndex = 0) {
+            let productIndex = cart.findIndex(p => p.id == product.id);
+            if (product.quantity === 0) {
                 cart.splice(productIndex, 1);
             }
-            localStorage.setItem("cart", JSON.stringify(cart)); 
-            location.reload();
+            localStorage.setItem("cart", JSON.stringify(cart));  
         });
         
         removeButton.addEventListener("click",function(){
@@ -138,9 +137,7 @@ async function loadCart(){
                 cart.splice(productIndex, 1);
             }
             localStorage.setItem("cart", JSON.stringify(cart)); 
-            location.reload();
         });
-        
     }
 }
 

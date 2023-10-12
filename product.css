@@ -36,6 +36,7 @@ nav{
     position: fixed;
     z-index: 1;
     width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.015), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
 }
 
 nav .logo h1{
@@ -62,6 +63,7 @@ nav .logo h1{
 }
 
 footer{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.015), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: space-between;
     align-items: center;
